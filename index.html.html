@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TESTE | Descubra se você se identifica com a área de logística</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+
+h1 {
+text-align: center;
+}
+
+form {
+max-width: 500px;
+margin: 0 auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #d5a6bd;
+}
+
+h2 {
+margin-bottom: 10px;
+}
+
+input[type="number"],
+input[type="radio"] {
+margin-bottom: 10px;
+}
+
+input[type="submit"] {
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+
+.compatibilidade {
+text-align: center;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.compatibilidade .compativel {
+color: green;
+}
+
+.compatibilidade .incompativel {
+color: red;
+}
+</style>
+</head>
+<body>
+<h1>Descubra se você se identifica com a área de logística</h1>
+
+<form onsubmit="event.preventDefault(); calcularCompatibilidade();">
+<h2>Perguntas</h2>
+
+<h3>1. Qual é a sua idade?</h3>
+<input type="number" id="idade" required>
+
+<h3>2. Você gosta de trabalhar com números e cálculos?</h3>
+<input type="radio" name="pergunta2" value="sim" required> Sim
+<input type="radio" name="pergunta2" value="nao"> Não
+<input type="radio" name="pergunta2" value="nao_certeza"> Não tenho certeza
+
+    <h3>3. Você possui habilidades de organização e gerenciamento?</h3>
+
+    <input type="radio" name="pergunta3" value="sim" required> Sim
+
+    <input type="radio" name="pergunta3" value="nao"> Não
+
+    <input type="radio" name="pergunta3" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>4. Você se considera uma pessoa detalhista?</h3>
+
+    <input type="radio" name="pergunta4" value="sim" required> Sim
+
+    <input type="radio" name="pergunta4" value="nao"> Não
+
+    <input type="radio" name="pergunta4" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>5. Você gosta de resolver problemas e encontrar soluções eficientes?</h3>
+
+    <input type="radio" name="pergunta5" value="sim" required> Sim
+
+    <input type="radio" name="pergunta5" value="nao"> Não
+
+    <input type="radio" name="pergunta5" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>6. Você gosta de lidar com processos de planejamento e organização?</h3>
+
+    <input type="radio" name="pergunta6" value="sim" required> Sim
+
+    <input type="radio" name="pergunta6" value="nao"> Não
+
+    <input type="radio" name="pergunta6" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>7. Você possui habilidades analíticas para interpretar dados e tomar decisões com base neles?</h3>
+
+    <input type="radio" name="pergunta7" value="sim" required> Sim
+
+    <input type="radio" name="pergunta7" value="nao"> Não
+
+    <input type="radio" name="pergunta7" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>8. Você se sente confortável em trabalhar com tecnologia?</h3>
+
+    <input type="radio" name="pergunta8" value="sim" required> Sim
+
+    <input type="radio" name="pergunta8" value="nao"> Não
+
+    <input type="radio" name="pergunta8" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>9. Você tem facilidade em identificar padrões e tendências?</h3>
+
+    <input type="radio" name="pergunta9" value="sim" required> Sim
+
+    <input type="radio" name="pergunta9" value="nao"> Não
+
+    <input type="radio" name="pergunta9" value="nao_certeza"> Não tenho certeza
+
+
+    <h3>10. Você gosta de trabalhar em equipe e acredita que colaboração é fundamental para alcançar resultados expressivos?</h3>
+
+    <input type="radio" name="pergunta10" value="sim" required> Sim
+
+    <input type="radio" name="pergunta10" value="nao"> Não
+
+    <input type="radio" name="pergunta10" value="nao_certeza"> Não tenho certeza
+
+
+<br><br>
+<button type="submit">Enviar</button>
+</form>
+
+<script>
+function calcularCompatibilidade() {
+var idade = parseInt(document.getElementById('idade').value);
+var respostas = document.querySelectorAll('input[type=radio]:checked');
+var compatibilidade = 0;
+
+// Lógica para calcular a compatibilidade com logística
+if (idade >= 18 && idade <= 30) {
+compatibilidade += 10;
+} else if (idade > 30 && idade <= 40) {
+compatibilidade += 8;
+}
+
+// Lógica para calcular a compatibilidade com base nas respostas das outras perguntas
+for (var i = 0; i < respostas.length; i++) {
+var resposta = respostas[i].value;
+
+// Exemplo de lógica para cada pergunta
+if (resposta === 'sim') {
+compatibilidade += 5;
+} else if (resposta === 'nao_certeza') {
+compatibilidade += 3;
+} else if (resposta === 'nao') {
+compatibilidade -= 2;
+}
+}
+
+// Exibindo o resultado da compatibilidade
+if (compatibilidade >= 50) {
+alert('Parabéns! Você é compatível com a área de logística.');
+} else {
+alert('Desculpe, você não é compatível com a área de logística.');
+}
+}
+</script>
+</body>
+</html>
